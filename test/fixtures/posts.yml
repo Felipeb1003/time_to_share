@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  date: 2020-07-28
+  location: MyString
+  review: MyText
+  user_id: 1
+  category_id: 1
+
+two:
+  title: MyString
+  date: 2020-07-28
+  location: MyString
+  review: MyText
+  user_id: 1
+  category_id: 1
