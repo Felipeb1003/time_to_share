@@ -1,0 +1,31 @@
+<h1><%= @post.title%></h1>
+
+<h3> <%= @post.location%> - <%= @post.date.strftime(" %B %d, %Y")%> </h3>
+
+<%if current_user == @post.user%>
+    <h3><%= link_to "Edit Post", edit_category_post_path(@post.category, @post)%>  <%= button_to "Delete Post", delete_post_path(@post.id)%></h3>
+<%end%>
+
+<h3> Category:<%= link_to @post.category.name, category_path(@post.category)%> <h3>
+
+<p> Share: <%= @post.review%> </p>
+
+<h4>Comments:</h4>
+    <ul>
+        <% @post.comments.each do |comment| %>
+            <div> 
+                <li>
+                    <%= link_to comment.user.username, user_path(comment.user)%> Said <%= comment.content%> <%= time_ago_in_words(comment.created_at)%>
+                </li>
+            </div>
+        <%end%>
+    </ul>
+
+<%= form_for @post.comments.build do |f|%>
+    <%= f.hidden_field :post_id, value: @post.id%>
+   
+
+    <%= f.text_area :content%> <br><br>
+
+    <%=f.submit "New Comment"%>
+<%end%>
