@@ -1,0 +1,21 @@
+
+<%= form_for @post do |f| %>
+    
+    <%= f.label :category%>
+    <%= f.collection_select :category_id, Category.all, :id, :name%><br><br>
+
+    <%=f.label :title%>
+    <%= f.text_field :title%><br><br>
+
+    <%= f.label :date%>
+    <%= f.date_field :date%><br><br>
+
+    <%= f.label :location%>
+    <%= f.text_field :location%><br><br>
+
+    <%= f.label :review%>
+    <%= f.text_area :review%><br><br>
+
+    <%= f.submit%>
+
+<%end%>
