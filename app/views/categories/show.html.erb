@@ -1,0 +1,9 @@
+<h1><%=@category.name%></h1>
+
+<%= link_to "New Post", new_category_post_path(@category)%>
+
+<% @category.posts.each do |post|%>
+    <ul>
+        <li> <%= link_to post.title, category_post_path(@category, post)%> by <%= post.user.username%> </li>
+    </ul>
+<%end%>
