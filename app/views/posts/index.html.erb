@@ -1,0 +1,11 @@
+<%= link_to "Today's Posts", posts_today_path %><br><br>
+
+<%= flash[:message]%>
+
+<% @posts.each do |post|%>
+    <ul>
+        <li>
+            <p><%= post.category.name %>: <%= link_to post.title, category_post_path(post.category, post)%> by <%=link_to post.user.username, user_path(post.user) %></p>
+        </li>
+    </ul>
+<%end%>        
