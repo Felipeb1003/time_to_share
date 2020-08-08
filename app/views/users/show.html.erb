@@ -1,0 +1,12 @@
+<h1> <%= @user.username %> </h1>
+
+<%= flash[:message]%>
+
+<% @user.posts.each do |post|%>
+<ul>
+    <li>
+    <%= link_to post.title, category_post_path(post.category, post)%>
+    </li>
+</ul>
+<%end%>
+
